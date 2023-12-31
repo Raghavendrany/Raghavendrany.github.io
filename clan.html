@@ -1,0 +1,43 @@
+<!-- clan.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (existing head content) ... -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- ... (existing navigation content) ... -->
+    </nav>
+
+    <section class="container">
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center">Clan Name: {{ clan_info.get('name', 'N/A') }}</h3>
+            </div>
+        </div>
+        <br><br>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Townhall Level</th>
+                    <th scope="col">Tag</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in clan_info.get('memberList', []) %}
+                    <tr>
+                        <td>{{ member.get('name', 'N/A') }}</td>
+                        <td>{{ member.get('townHallLevel', 'N/A') }}</td>
+                        <td>{{ member.get('tag', 'N/A') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </section>
+</body>
+</html>
